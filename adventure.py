@@ -22,9 +22,9 @@ while True:
             valid_directions[k] = possible_position
 
     direction = raw_input('which direction do you want to go?')
-#comment here 
+#comment here
     new_position = valid_directions.get(direction)
     if new_position:
         position = new_position
     else:
-        print "Turn Back!"
+        print "ZOMBIES!!!Turn Back!"
