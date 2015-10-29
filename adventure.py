@@ -7,7 +7,7 @@ directions = {
     'south':(0,1),
 }
 
-position = (0,0),
+position = (0,0)
 
 while True:
     location = locations[position]
@@ -21,5 +21,10 @@ while True:
             print 'to the %s is a %s' % (k, possible_location)
             valid_directions[k] = possible_position
 
-    direction = raw_input('which direction do you want to go?/n')
-    position = valid_directions[direction]
+    direction = raw_input('which direction do you want to go?')
+#comment here 
+    new_position = valid_directions.get(direction)
+    if new_position:
+        position = new_position
+    else:
+        print "Turn Back!"
