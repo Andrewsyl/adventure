@@ -6,7 +6,6 @@ directions = {
     'north': (0,-1),
     'south':(0,1),
 }
-#YES = {"You got the %s" % items}
 
 position = (0,0)
 
