@@ -9,13 +9,15 @@ directions = {
 
 position = (0,0)
 
+
 while True:
     location = locations[position]
-    descriptions = description[position]
+    description1 = description[position]
     stuff = items[position]
     mapo = map[position]
+
     print 'you are at the %s' % location
-    print '%s' % descriptions
+    print '%s' % description1
     print '%s' % mapo
 
     Choice = raw_input('You find a %s. Do you pick it up? YES/NO\n' % stuff)
@@ -24,15 +26,10 @@ while True:
     else:
         print "You leave the %s and keep going" % stuff
 
-
-
-
     valid_directions = {}
     for k, v in directions.iteritems():
         possible_position = (position[0] + v[0], position[1] + v[1])
         possible_location = locations.get(possible_position)
-        possible_description = description.get(possible_position)
-        mapo = map.get(possible_position)
 
         if possible_location:
             print 'to the %s is a %s' % (k, possible_location,)
