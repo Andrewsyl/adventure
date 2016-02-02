@@ -21,7 +21,7 @@ while True:
     print '%s' % mapo
 
     Choice = raw_input('You find a %s. Do you pick it up? YES/NO\n' % stuff)
-    if Choice == 'yes':
+    if Choice == 'yes' or 'YES' or 'Yes':
         print "You picked up the %s" % stuff
     else:
         print "You leave the %s and keep going" % stuff
