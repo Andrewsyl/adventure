@@ -9,6 +9,7 @@ directions = {
 
 position = (0,0)
 
+inventory = []
 
 while True:
     location = locations[position]
@@ -20,9 +21,23 @@ while True:
     print '%s' % description1
     print '%s' % mapo
 
-    Choice = raw_input('You find a %s. Do you pick it up? YES/NO\n' % stuff)
-    if Choice == 'yes' or 'YES' or 'Yes':
-        print "You picked up the %s" % stuff
+    Choice = raw_input('You find a %s. Do you pick it up? YES/NO\n' % stuff).upper()
+    if Choice == 'YES':
+        if stuff in inventory:
+            print "You aleady have one of those"
+            continue
+        else:
+            print "You picked up the %s" % stuff
+            inventory.append(stuff)
+    # elif stuff in inventory:
+    #     print "You already have one of those"
+    #     continue
+    elif Choice == "DROP ITEM":
+        i = raw_input("which item?: ")
+        for j in inventory:
+            if j == i:
+                inventory.remove(i)
+        print "You dropped %s" % i
     else:
         print "You leave the %s and keep going" % stuff
 
@@ -34,7 +49,7 @@ while True:
         if possible_location:
             print 'to the %s is a %s' % (k, possible_location,)
             valid_directions[k] = possible_position
-
+    print "Inventory: %s" % inventory
 
     direction = raw_input('which direction do you want to go?\n')
     new_position = valid_directions.get(direction)
@@ -43,5 +58,7 @@ while True:
     else:
         print "You walked into a fence"
 
+print inventory
+print "You collected all the items, well done!"
 
 
